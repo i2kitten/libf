@@ -1,4 +1,3 @@
--- i will rewrite this someday
 local UserInputService = game:GetService("UserInputService")
 local Mouse = game:GetService("Players").LocalPlayer:GetMouse()
 local Camera = game:GetService("Workspace").CurrentCamera
@@ -38,7 +37,7 @@ return function(Config)
 
 	local Selector = New("Frame", {
 		Size = UDim2.fromOffset(4, 0),
-		BackgroundColor3 = Color3.fromRGB(76, 194, 255),
+		BackgroundColor3 = Color3.fromRGB(100, 200, 255),
 		Position = UDim2.fromOffset(0, 17),
 		AnchorPoint = Vector2.new(0, 0.5),
 		ThemeTag = {
@@ -66,16 +65,25 @@ return function(Config)
 		ScrollingDirection = Enum.ScrollingDirection.Y,
 	}, {
 		New("UIListLayout", {
-			Padding = UDim.new(0, 4),
+			Padding = UDim.new(0, 8),
 		}),
 	})
 
 	local TabFrame = New("Frame", {
 		Size = UDim2.new(0, Window.TabWidth, 1, -66),
 		Position = UDim2.new(0, 12, 0, 54),
-		BackgroundTransparency = 1,
+		BackgroundColor3 = Color3.fromRGB(25, 35, 60),
+		BackgroundTransparency = 0.15,
 		ClipsDescendants = true,
 	}, {
+		New("UICorner", {
+			CornerRadius = UDim.new(0, 14),
+		}),
+		New("UIStroke", {
+			Color = Color3.fromRGB(100, 150, 220),
+			Thickness = 1.5,
+			Transparency = 0.4,
+		}),
 		Window.TabHolder,
 		Selector,
 	})
@@ -116,11 +124,21 @@ return function(Config)
 	})
 
 	Window.Root = New("Frame", {
-		BackgroundTransparency = 1,
+		BackgroundColor3 = Color3.fromRGB(20, 25, 45),
+		BackgroundTransparency = 0.12,
 		Size = Window.Size,
 		Position = Window.Position,
 		Parent = Config.Parent,
+		BorderSizePixel = 0,
 	}, {
+		New("UICorner", {
+			CornerRadius = UDim.new(0, 28),
+		}),
+		New("UIStroke", {
+			Color = Color3.fromRGB(100, 160, 255),
+			Thickness = 2,
+			Transparency = 0.35,
+		}),
 		Window.AcrylicPaint.Frame,
 		Window.TabDisplay,
 		Window.ContainerCanvas,
